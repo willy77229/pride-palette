@@ -3,15 +3,21 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { UserProvider } from './components/contexts/user.context';
-import './index.scss';
+import { ProdcutsProvider } from './components/contexts/products.context';
+import { CartContext, CartProvider } from './components/contexts/cart.context';
 import reportWebVitals from './reportWebVitals';
+import './index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <ProdcutsProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </ProdcutsProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
