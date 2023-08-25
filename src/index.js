@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { UserProvider } from './components/contexts/user.context';
-import { ProdcutsProvider } from './components/contexts/products.context';
-import { CartContext, CartProvider } from './components/contexts/cart.context';
+import { UserProvider } from './contexts/user.context';
+import { CartProvider } from './contexts/cart.context';
 import reportWebVitals from './reportWebVitals';
+import { CategoriesProvider } from './contexts/categories.context';
 import './index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,11 +13,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <ProdcutsProvider>
+        <CategoriesProvider>
           <CartProvider>
             <App />
           </CartProvider>
-        </ProdcutsProvider>
+        </CategoriesProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
