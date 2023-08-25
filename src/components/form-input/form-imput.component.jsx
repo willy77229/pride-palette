@@ -1,3 +1,5 @@
+import isPropValid from '@emotion/is-prop-valid';
+import { StyleSheetManager } from 'styled-components';
 import { FormInputLabel, Input, Group } from "./form-input.styles";
 
 const FormInput = ({ label, ...otherProps }) => {
@@ -5,10 +7,12 @@ const FormInput = ({ label, ...otherProps }) => {
         <Group>
             <Input {...otherProps}/>
             {label && (
-                <FormInputLabel
-                shrink={otherProps.value.length}> 
-                    {label}
-                </FormInputLabel>
+                <StyleSheetManager shouldForwardProp={isPropValid}>
+                    <FormInputLabel
+                    shrink={otherProps.value.length}> 
+                        {label}
+                    </FormInputLabel>
+                </StyleSheetManager>
             )}    
         </Group>
     )
